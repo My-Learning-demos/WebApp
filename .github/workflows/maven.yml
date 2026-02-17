@@ -31,6 +31,11 @@ jobs:
       run: mvn test --file pom.xml
     - name: Jacoco with Maven
       run: mvn clean install -Pjacoco
+    - name: Upload Pages artifact (JaCoCo HTML)
+      uses: actions/upload-pages-artifact@v3
+      with:
+          path: target/site/jacoco
+
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     #- name: Update dependency graph
